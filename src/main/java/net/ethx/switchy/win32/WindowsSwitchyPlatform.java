@@ -5,10 +5,8 @@ import net.ethx.switchy.Controller;
 import net.ethx.switchy.model.AppSource;
 import net.ethx.switchy.model.SwitchyPlatform;
 
-import java.awt.event.KeyEvent;
 import java.util.concurrent.Executors;
 
-import static com.sun.jna.platform.win32.WinUser.MOD_WIN;
 import static com.sun.jna.platform.win32.WinUser.WM_HOTKEY;
 import static net.ethx.switchy.win32.User32Ext.INSTANCE;
 
@@ -23,7 +21,7 @@ public class WindowsSwitchyPlatform implements SwitchyPlatform {
     public void initialise(Controller controller) {
         Executors.newSingleThreadExecutor(r -> new Thread(r, "switchy-hotkey"))
                 .execute(() -> {
-                    if (!INSTANCE.RegisterHotKey(null, 1, MOD_WIN, KeyEvent.VK_G)) {
+                    if (!INSTANCE.RegisterHotKey(null, 1, WinUser.MOD_ALT, 223)) {
                         System.err.println("Could not register global hotkey");
                         System.exit(-1);
                     }
