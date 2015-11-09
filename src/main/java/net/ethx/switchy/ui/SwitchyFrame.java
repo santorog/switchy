@@ -22,7 +22,7 @@ public class SwitchyFrame extends JFrame {
         //  change our visibility per the model
         controller.model().visible().pcs().addPropertyChangeListener(e -> {
             final GraphicsDevice[] devices = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices();
-            final GraphicsDevice device = devices[GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices().length / 2];
+            final GraphicsDevice device = devices[devices.length / 2];
             final Rectangle deviceBounds = device.getDefaultConfiguration().getBounds();
             setLocation((int)(deviceBounds.getCenterX() - (getWidth() / 2)), (int)(deviceBounds.getCenterY() - (getHeight() / 2)));
             setVisible(controller.model().visible().get());
