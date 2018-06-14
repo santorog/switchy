@@ -21,11 +21,15 @@ public class SwitchyFrame extends JFrame {
 
         //  change our visibility per the model
         controller.model().visible().pcs().addPropertyChangeListener(e -> {
-            final GraphicsDevice[] devices = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices();
-            final GraphicsDevice device = devices[devices.length / 2];
-            final Rectangle deviceBounds = device.getDefaultConfiguration().getBounds();
-            setLocation((int)(deviceBounds.getCenterX() - (getWidth() / 2)), (int)(deviceBounds.getCenterY() - (getHeight() / 2)));
-            setVisible(controller.model().visible().get());
+            pack();
+            setLocationRelativeTo(null);
+
+            final boolean visible = controller.model().visible().get();
+            setVisible(visible);
+            if (visible) {
+                toFront();
+                repaint();
+            }
         });
 
         //  hide on focus lost

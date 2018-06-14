@@ -82,7 +82,12 @@ public class SwitchyPanel extends JPanel {
         input.setBorder(BorderFactory.createLineBorder(Color.BLACK, 16));
         input.setBackground(Color.BLACK);
         input.setForeground(Color.WHITE);
-        input.setFont(new Font("Segoe UI Light", Font.PLAIN, 28));
+        input.setFont(new Font("Consolas", Font.PLAIN, 28));
+
+        matches.setBackground(Color.BLACK);
+        matches.setForeground(Color.WHITE);
+        matches.setSelectionBackground(new Color(0x42, 0x42, 0x42));
+        matches.setSelectionForeground(Color.WHITE);
 
         matches.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         matches.setCellRenderer(new MatchRenderer());
@@ -145,11 +150,11 @@ public class SwitchyPanel extends JPanel {
     }
 
     class MatchRenderer extends JTextArea implements ListCellRenderer<Match<App>> {
-        private final Highlighter.HighlightPainter painter = new DefaultHighlighter.DefaultHighlightPainter(new Color(28, 184, 65));
+        private final Highlighter.HighlightPainter painter = new DefaultHighlighter.DefaultHighlightPainter(new Color(0xFF, 0x98, 0));
 
         public MatchRenderer() {
             setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
-            setFont(new Font("Segoe UI Light", Font.PLAIN, 22));
+            setFont(new Font("Consolas", Font.PLAIN, 22));
         }
 
         @Override
