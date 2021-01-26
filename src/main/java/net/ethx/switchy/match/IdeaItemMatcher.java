@@ -1,8 +1,8 @@
 package net.ethx.switchy.match;
 
-import javafx.util.Pair;
 import net.ethx.switchy.model.ItemMatcher;
 import net.ethx.switchy.model.Match;
+import org.javatuples.Pair;
 
 import java.util.ArrayList;
 import java.util.List;

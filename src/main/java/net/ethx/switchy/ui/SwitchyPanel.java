@@ -1,18 +1,29 @@
 package net.ethx.switchy.ui;
 
-import javafx.util.Pair;
 import net.ethx.switchy.Controller;
 import net.ethx.switchy.Model;
 import net.ethx.switchy.model.App;
 import net.ethx.switchy.model.Match;
+import org.javatuples.Pair;
 
-import javax.swing.*;
+import javax.swing.AbstractListModel;
+import javax.swing.BorderFactory;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.ListCellRenderer;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.BitSet;
@@ -168,8 +179,9 @@ public class SwitchyPanel extends JPanel {
 
             for (Pair<Integer, Integer> range : value.ranges()) {
                 try {
-                    highlighter.addHighlight(range.getKey(), range.getValue(), painter);
-                } catch (BadLocationException ignored) {}
+                    highlighter.addHighlight(range.getValue0(), range.getValue1(), painter);
+                } catch (BadLocationException ignored) {
+                }
             }
 
             return this;

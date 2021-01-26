@@ -6,7 +6,7 @@ import net.ethx.switchy.model.Match;
 import net.ethx.switchy.model.SwitchyPlatform;
 import net.ethx.switchy.ui.SwitchyFrame;
 
-import java.awt.*;
+import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 
 public class Controller {
