@@ -2,8 +2,6 @@ package net.ethx.switchy.model;
 
 import org.javatuples.Pair;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Match<T> {
@@ -12,7 +10,7 @@ public class Match<T> {
 
     public Match(final T value, final List<Pair<Integer, Integer>> ranges) {
         this.value = value;
-        this.ranges = Collections.unmodifiableList(new ArrayList<>(ranges));
+        this.ranges = List.copyOf(ranges);
     }
 
     public T value() {

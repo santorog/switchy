@@ -8,7 +8,6 @@ import net.ethx.switchy.model.App;
 import net.ethx.switchy.model.AppSource;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class WindowsAppSource implements AppSource {
             }
         }, null);
 
-        Collections.sort(ret, Comparator.comparing(App::name, String.CASE_INSENSITIVE_ORDER));
+        ret.sort(Comparator.comparing(App::name, String.CASE_INSENSITIVE_ORDER));
         return ret;
     }
 }

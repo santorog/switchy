@@ -6,6 +6,7 @@ import org.javatuples.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,7 +18,7 @@ public class IdeaItemMatcher<T> implements ItemMatcher<T> {
         final Pattern pattern = patternize(input);
         return values.stream()
                 .map(t -> match(t, extracter, pattern))
-                .filter(m -> m != null)
+                .filter(Objects::nonNull)
                 .collect(Collectors.toList());
     }
 
